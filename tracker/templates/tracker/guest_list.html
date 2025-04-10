@@ -1,0 +1,25 @@
+{% extends 'tracker/base.html' %}
+
+{% block content %}
+  <h2>Guest List</h2>
+  <table class="table table-striped">
+      <thead>
+          <tr>
+              <th>Guest Name</th>
+              <th>Email</th>
+              <th>Arrival</th>
+              <th>Departure</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for guest in guests %}
+          <tr>
+              <td><a href="{% url 'guest_detail' guest.pk %}">{{ guest.name }}</a></td>
+              <td>{{ guest.email }}</td>
+              <td>{{ guest.arrival_date }}</td>
+              <td>{{ guest.departure_date }}</td>
+          </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+{% endblock %}
